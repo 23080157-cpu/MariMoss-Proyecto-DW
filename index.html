@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout Centrado 60%</title>
+    <style>
+        body { margin: 0; font-family: sans-serif; background-image: url(img/back2.jpg); background-repeat: no-repeat; background-size: cover; }
+        header, nav, .container, footer { width: 60%; margin: 0 auto; box-sizing: border-box; display: block; justify-content: center;  border: 2px solid #4e4e4e; }
+        header { background: hsla(0, 0%, 0%, 0.774); height: 300px; text-align: center; display: flex; align-items: center; justify-content: center; border-right: 1px solid #4e4e4e; border-left: 1px solid #4e4e4e; border-top: 2px solid #4e4e4e; border-radius: 70px 80px 0 0; padding: 15px 10px 13px 30px; backdrop-filter: blur(1px) saturate(150%); box-shadow: rgba(0, 0, 0, .25) 0 14px 28px, rgba(0, 0, 0, .22) 0 10px 10px;  }
+        nav { background-image: url(img/navindex.png); height: 50px; text-align: center; line-height: 50px; color: white; }
+        .container { background: #ffffff; display: table; table-layout: fixed; }
+        aside, main { display: table-cell; vertical-align: top;  border: 2px solid #4e4e4e;}
+        aside { width: 150px; height: 500px; padding: 20px; color: white; text-align: center;}
+        .sidebar-left { background: #5fafff; }
+        .sidebar-right { background-image: url(img/glass.png), url(img/sideright.png); background-size: cover; background-repeat: no-repeat; }
+        main { padding: 20px; }
+        footer { background: #af5fff; height: 60px; text-align: center; line-height: 60px; margin-bottom: 1%; border-radius: 0 0 40px 40px; }
+    </style>
+</head>
+<body>
+    <p></p>
+    <header><img src="img/logo.png" width="100%"></header>    
+    <nav>
+        <marquee>¡Informacion de virgos transmitida por todo el oceano!</marquee>
+    </nav>
+    <div class="container">
+        <aside class="sidebar-left">
+            <h1>Integrantes</h1>
+
+
+
+
+
+        </aside>
+
+        <main>
+            <h2>Contenido Principal</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </main>
+
+        <aside class="sidebar-right">
+            <h1>Links</h1>
+
+        </aside>
+    </div>
+    <footer>Footer</footer>
+</body>
+</html>
