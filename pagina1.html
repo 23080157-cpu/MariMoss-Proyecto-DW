@@ -4,192 +4,236 @@
     <meta charset="UTF-8">
     <title>MariMoss</title>
     <style>
-    
-    body{
-        color: white;
-        background-image: url(imgU/windows_7_12.jpg);
-    }
-    .navbar {
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-    gap: 20px; 
-    background-image: url(imgU/navbar.png);
-    background-size: cover;
-    padding: 15px;
-    color: white;
-    width: 1450px;
-}
-.navbar a {
-    text-decoration: none;
-    color: white;
-}
-aside {
-        width: 350px;
-        background-image: url(imgU/sidebar1.png);
-        float:right;
-        padding: 20px;
-        box-sizing: border-box;
-        height: 900px;
-    }
-.box {
-  width: 350px;
-  height: 150px;
-  margin: 10px;
-  padding: 25px;
-  border: 5px solid rgb(75, 90, 69);
-  background-color: rgb(70, 196, 255);
-  color: rgb(255, 255, 255);
-}
-.nav-links {
-            list-style: none;
-            display: flex;
+        @font-face {
+            font-family: Napapiiri; 
+            src: url(fonts/Napapiiri.ttf);
+        }
+        @font-face {
+            font-family: SleepTalk; 
+            src: url(fonts/SLEEP.TTF);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            background-image: url(imgU/windows_7_12.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Napapiiri', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-image: url(imgU/navbar.png);
+            background-size: cover;
+            padding: 15px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
         }
 
         .nav-links li {
-            margin-left: 20px;
+            margin: 0 20px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: white;
-            font-weight: 500;
+            font-family: 'SleepTalk', sans-serif;
+            font-size: 1.2rem;
             transition: color 0.3s;
         }
+
         .nav-links a:hover {
             color: #4CAF50;
         }
-.menu-links a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-.news-card {
-  width: 350px;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
 
-.news-card:hover {
-  transform: translateY(-5px); 
-}
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
 
-.news-image {
-  position: relative;
-  height: 200px;
-}
+        .news-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 20px;
+            align-content: start;
+        }
 
-.news-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-}
+        aside {
+            width: 300px;
+            background-image: url(imgU/sidebar1.png);
+            background-size: cover;
+            padding: 20px;
+            min-height: 100%;
+        }
 
-.category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #007bff;
-  color: white;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
+        .news-card {
+            background-image: url(img/glass.png);
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            height: fit-content;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-.news-content {
-  padding: 20px;
-}
+        .news-card:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
 
-.date {
-  font-size: 0.85rem;
-  color: #777;
-}
+        .news-image {
+            position: relative;
+            height: 200px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
 
-.title {
-  font-size: 1.4rem;
-  margin: 10px 0;
-  color: #333;
-  line-height: 1.2;
-}
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
 
-.excerpt {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
+        .category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-family: 'SleepTalk', sans-serif;
+        }
 
-.read-more {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-.news-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+        .news-content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            font-family: 'SleepTalk', sans-serif;
+            font-size: 1.8rem;
+            margin: 10px 0;
+            color: #ffffff;
+            line-height: 1.1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .excerpt {
+            font-family: 'Napapiiri', sans-serif;
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+            font-family: 'SleepTalk', sans-serif;
+            border: 1px solid #4CAF50;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .read-more:hover {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .menu-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-family: 'Napapiiri', sans-serif;
+        }
     </style>
 </head>
 <body>
-  <aside class="sidebar-right">
-            <h1>Links</h1>
-            <div class="menu-links">
-                <a href="index.html">Regresar al Inicio</a>
-                <a href="#">Siguiente Articulo</a>
-                <a href="#">Galeria de Imagenes</a>
-                <a href="#">Descargar PDF</a>
-            </div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="pagina1.html">noticias</a></li>
+            <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-wrapper">
+        <section class="news-container">
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="imgU/noticia1.webp">
+                    <span class="category">Anime</span>
+                </div>
+                <div class="news-content">
+                    <span class="date" style="color:#ccc; font-size: 0.8rem;">4 de marzo de 2026</span>
+                    <h2 class="title">Girls Band Cry lanza un nuevo trailer</h2>
+                    <p class="excerpt">Toei Animation ha lanzado su segundo trailer sobre este gran anime despues del exito de la pelicula.</p>
+                    <a href="noticiagirlsbandcry.html" class="read-more">Leer mas →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="imgU/DB.jpg">
+                    <span class="category">Anime</span>
+                </div>
+                <div class="news-content">
+                    <span class="date" style="color:#ccc; font-size: 0.8rem;">4 de marzo de 2026</span>
+                    <h2 class="title">Dragon ball ha vuelto!</h2>
+                    <p class="excerpt">Toei Animation anuncia el regreso de este popular anime para todos los fanaticos.</p>
+                    <a href="noticiadragonball.html" class="read-more">Leer mas →</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image">
+                    <img src="img/seki.jpg">
+                    <span class="category">Reflexion</span>
+                </div>
+                <div class="news-content">
+                    <span class="date" style="color:#ccc; font-size: 0.8rem;">4 de marzo de 2026</span>
+                    <h2 class="title">La importancia de la positividad y el Slice of Life</h2>
+                    <p class="excerpt">El genero Slice of Life (Recuentos de la vida) ofrece un refugio de calma en la cultura moderna. Al enfocarse en la belleza de lo cotidiano y las conexiones humanas simples, estas historias fomentan la empatia y nos enseñan a valorar los momentos pequeños pero significativos del dia a dia.</p>
+                    <a href="pagina2.html" class="read-more">Leer mas →</a>
+                </div>
+            </article>
+        </section>
+
+        <aside class="sidebar-right"> 
+            <img src="img/ubtag.png">
+            <img src="img/ButtonMMoss.png">
         </aside>
-<nav class="navbar">
-<ul class="nav-links">
-    <li><a href="index.html">inicio</a></li>
-    <li><a href="pagina1.html">noticias</a></li>
-    <li><a href="pagina2">pagina2</a></li>
-    <li><a href="pagina3">pagina3</a></li>
-    <li><a href="pagina4">pagina4</a></li>
-</ul>
-</nav>
-<section class="news-container">
-<article class="news-card">
-  <div class="news-image">
-    <img src="imgU/noticia1.webp">
-    <span class="category">Anime</span>
-  </div>
-  <div class="news-content">
-    <span class="date">4 de marzo de 2026</span>
-    <h2 class="title">Girls Band Cry lanza un nuevo trailer para su segunda pelicula</h2>
-    <p class="excerpt">se lanzo un segundo trailer sobre este anime titulado "Girls Band Cry", despues del exito de la segunda pelicula, Toei Animation ha lanzado su segundo trailer sobre este gran anime</p>
-    <li><a href="noticiagirlsbandcry.html" class="read-more">Leer mas →</a></li>
-  </div>
-</article>
-<section class="news-container">
-<article class="news-card">
-  <div class="news-image">
-    <img src="imgU/DB.jpg">
-    <span class="category">Anime</span>
-  </div>
-  <div class="news-content">
-    <span class="date">4 de marzo de 2026</span>
-    <h2 class="title">Dragon ball ha vuelto!</h2>
-    <p class="excerpt">Toei Animation anuncia el regreso de este popular anime</p>
-    <li><a href="noticiadragonball.html" class="read-more">Leer mas →</a></li>
-  </div>
-</article>
-   
+    </div>
+
 </body>
 </html>

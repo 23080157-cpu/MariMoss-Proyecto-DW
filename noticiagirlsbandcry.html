@@ -4,206 +4,221 @@
     <meta charset="UTF-8">
     <title>MariMoss</title>
     <style>
-         body{
-        color: white;
-        background-image: url(imgU/wp3738654.jpg);
-    }
-    .navbar {
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-    gap: 20px; 
-    background-image: url(imgU/navbar2.png);
-    background-size: cover;
-    padding: 15px;
-    color: white;
-    width: 1450px;
-}
-.box {
-    background-color: rgb(92, 89, 89);
-    border-radius: 0%;
-    border-color: #007bff;
-}
-.navbar a {
-    text-decoration: none;
-    color: white;
-}
-aside {
-        width: 350px;
-        background-image: url(imgU/side\ bar2.png);
-        float:right;
-        padding: 20px;
-        box-sizing: border-box;
-        height: 900px;
-    }
-.nav-links {
-            list-style: none;
-            display: flex;
+        @font-face {
+            font-family: Napapiiri; 
+            src: url(fonts/Napapiiri.ttf);
+        }
+        @font-face {
+            font-family: SleepTalk; 
+            src: url(fonts/SLEEP.TTF);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            background-image: url(imgU/wp3738654.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Napapiiri', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-image: url(imgU/navbar2.png);
+            background-size: cover;
+            padding: 15px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
         }
 
         .nav-links li {
-            margin-left: 20px;
+            margin: 0 20px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: white;
-            font-weight: 500;
+            font-family: 'SleepTalk', sans-serif;
+            font-size: 1.2rem;
             transition: color 0.3s;
         }
+
         .nav-links a:hover {
             color: #4CAF50;
         }
-.menu-links a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-.article-container {
-  max-width: 800px; 
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: 'Georgia', 
-  color: #222;
-}
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 20px;
-  text-decoration: none;
-  color: #007bff;
-  font-family: sans-serif;
-}
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            width: 100%;
+        }
 
-.article-header h1 {
-  font-family: sans-serif;
-  font-size: 2.8rem;
-  line-height: 1.1;
-  margin: 15px 0;
-}
+        .article-container {
+            flex: 1;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            
+            background-image: url(img/glass.png);
+            background-color: rgba(255, 255, 255, 0.12);
+            background-blend-mode: overlay;
+            background-size: cover;
+            
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            
+            color: #ffffff;
+            height: fit-content;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
 
-.article-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
-}
+        aside {
+            width: 300px;
+            background-image: url('imgU/side bar2.png');
+            background-size: cover;
+            padding: 20px;
+            min-height: 100%;
+        }
 
-.author-img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-family: 'SleepTalk', sans-serif;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
 
-.meta-info {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  font-size: 0.9rem;
-  color: #666;
-}
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
 
-.featured-image img {
-  width: 100%;
-  border-radius: 8px;
-}
+        .article-header h1 {
+            font-family: 'SleepTalk', sans-serif;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
 
-.featured-image figcaption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 10px;
-  font-style: italic;
-}
+        .category-tag {
+            background: #007bff;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-family: 'Napapiiri', sans-serif;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
 
-.article-body {
-  font-size: 1.2rem;
-  line-height: 1.7; 
-  margin-top: 30px;
-}
+        .featured-image img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-.lead {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #444;
-  margin-bottom: 30px;
-}
+        .article-body {
+            font-family: 'Napapiiri', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #e8e8e8;
+        }
 
-blockquote {
-  border-left: 4px solid #007bff;
-  padding-left: 20px;
-  margin: 40px 0;
-  font-style: italic;
-  font-size: 1.5rem;
-  color: #555;
-}
-.video-responsive {
-  position: relative;
-  padding-bottom: 56.25%; 
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  margin: 30px 0;
-}
+        .article-body h2 {
+            font-family: 'SleepTalk', sans-serif;
+            margin: 25px 0 10px;
+            color: #4CAF50;
+            font-size: 1.9rem;
+        }
 
-.video-responsive iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+        .menu-links a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            background: rgba(0,0,0,0.6);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            font-family: 'Napapiiri', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .menu-links a:hover {
+            background: rgba(76, 175, 80, 0.4);
+            transform: scale(1.02);
+        }
+
+        aside h1 {
+            font-family: 'SleepTalk', sans-serif;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
-  <aside class="sidebar-right">
-            <h1>Links</h1>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">inicio</a></li>
+            <li><a href="pagina1.html">noticias</a></li>
+            <li><a href="pagina2.html">pagina2</a></li>
+            <li><a href="pagina3.html">pagina3</a></li>
+            <li><a href="pagina4.html">pagina4</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-wrapper">
+        <main class="article-container">
+            <a href="pagina1.html" class="back-link">← regresar</a>
+
+            <header class="article-header">
+                <span class="category-tag">anime</span>
+                <h1>Nuevo trailer de la segunda pelicula de Girls Band Cry</h1>
+            </header>
+
+            <figure class="featured-image">
+                <img src="imgU/wp14061529-girls-band-cry-wallpapers.jpg">
+            </figure>
+
+            <section class="article-body">
+                <p>Girls Band Cry, una popular serie anime basada en un grupo de chicas que sienten que no encajan en este mundo, encuentran un escape a todos esos problemas: la musica. Cada una lucha con sus demonios internos a lo largo de la historia, protagonizada por Nina Iseri, una chica de 17 años que sufria de acoso escolar y problemas familiares. Este anime fue producido por Toei Animation.</p>
+          
+                <h2>detalles</h2>
+                <p>El anime cuenta con 13 episodios transmitidos en Japon durante abril y junio de 2024. La direccion estuvo a cargo de Kazuo Sakai, mientras que Jukki Hanada escribio la composicion de la serie.</p>
+            </section>
+        </main>
+
+        <aside class="sidebar-right">
+            <h1 style="color: white; margin-bottom: 15px;">Links</h1>
             <div class="menu-links">
                 <a href="index.html">Regresar al Inicio</a>
                 <a href="#">Siguiente Articulo</a>
                 <a href="#">Galeria de Imagenes</a>
-                <a href="#">Descargar PDF</a>
             </div>
         </aside>
-<nav class="navbar">
-<ul class="nav-links">
-    <li><a href="index.html">inicio</a></li>
-    <li><a href="pagina1.html">noticias</a></li>
-    <li><a href="pagina2">pagina2</a></li>
-    <li><a href="pagina3">pagina3</a></li>
-    <li><a href="pagina4">pagina4</a></li>
-</ul>
-</nav>
-<main class="article-container">
-  <a href="pagina1.html" class="back-link">← regresar</a>
-
-  <header class="article-header">
-    <span class="category-tag">anime</span>
-    <h1>Nuevo trailer de la segunda pelicula de Girls Band Cry</h1>
-      </div>
     </div>
-  </header>
 
-  <figure class="featured-image">
-    <img src="imgU/wp14061529-girls-band-cry-wallpapers.jpg">
-  </figure>
-
-  <section class="article-body">
-    <p class="lead"></p>
-    
-    <p style="color: rgb(0, 0, 0);">Girls Band Cry, una popular serie anime basada en un grupo de chicas que sienten que no encajan en este mundo, encuentran un escape a todos esos problemas: la musica, cada una lucha con sus demonios internos a lo largo de la historia, protagonizado por Nina Iseri, una chica de 17 años que sufria de acoso escolar y problemas familiares, este anime fue hecho por el famoso estudio de animacion Toei Animation, este estudio ya nos ha dado grandes animes como One Piece y Dragon Ball.</p>
-    
-    <h2>detalles</h2>
-    <p>el anime cuenta con 13 episodios transmitidos en japon durante abril y junio de 2024, La dirección estuvo a cargo de Kazuo Sakai, mientras que Jukki Hanada escribió la composición de la serie.</p>
-  </section>
-</main>
 </body>
 </html>

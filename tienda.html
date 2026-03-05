@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MariMoss - Tienda de Articulos Raros</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $(".acordeon-pago").accordion({
+                collapsible: true,
+                active: false,
+                heightStyle: "content"
+            });
+        });
+    </script>
+    <style>
+        @font-face {font-family: Napapiiri; src: url(fonts/Napapiiri.ttf);}
+        @font-face {font-family: SleepTalk; src: url(fonts/SLEEP.TTF);}
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: SleepTalk, sans-serif;
+            background-image: url(img/back2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header, nav, .container, footer { 
+            width: 95%; 
+            margin: 0 auto; 
+            border: 2px solid #4e4e4e; 
+        }
+
+        header { 
+            background: hsla(0, 0%, 0%, 0.8); 
+            height: 180px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 50px 50px 0 0; 
+            backdrop-filter: blur(5px);
+            margin-top: 1%;
+        }
+
+        nav { 
+            background-image: url(img/navindex.png); 
+            height: 50px; 
+            text-align: center; 
+            line-height: 50px; 
+            color: white; 
+        }
+
+        .container { background: #ffffff; display: table; table-layout: fixed; }
+
+        aside, main { display: table-cell; vertical-align: top; border: 1px solid #4e4e4e; }
+
+        .sidebar-left { background: #0b7544; width: 180px; padding: 15px; color: white; text-align: center; }
+        .sidebar-right { 
+            width: 180px; 
+            padding: 15px; 
+            background-image: url(img/glass.png), url(img/sideright.png); 
+            background-size: cover; 
+            text-align: center;
+            color: white;
+        }
+
+        main { padding: 30px; width: auto; }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px;
+        }
+
+        .product-card {
+            background-image: url(img/glass.png);
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.25);
+            border: 2px solid #4e4e4e;
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            height: fit-content;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .product-image-container img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+        .product-card h2 { font-family: Napapiiri; color: #004d0e; text-align: center; margin-bottom: 5px; font-size: 1.4rem; }
+        
+        .product-description {
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-style: italic;
+        }
+
+        .ui-accordion-header {
+            background: url('img/navindex.png') !important;
+            color: white !important;
+            font-family: Napapiiri !important;
+            font-size: 0.9rem !important;
+            border-radius: 10px !important;
+            margin-top: 10px !important;
+            text-align: center;
+        }
+
+        .form-compra {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px 5px;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        .form-compra label { 
+            font-family: SleepTalk; 
+            font-size: 1rem; 
+            color: #0b7544; 
+            margin-bottom: -5px; 
+            font-weight: bold;
+        }
+
+        .form-compra input, .form-compra select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            font-family: sans-serif;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .btn-enviar {
+            background: #0b7544;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: Napapiiri;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-enviar:hover { background: #085a34; }
+
+        footer {
+            background-image: url(img/glass.png);
+            background-color: #222;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 0 0 40px 40px;
+            color: white;
+        }
+
+        .ui-accordion-header:hover{color: rgb(0, 189, 110) !important;}
+    </style>
+</head>
+<body>
+
+    <header><img src="img/logo.png" style="max-height: 80%;"></header>    
+    <nav><marquee>Consigue articulos raros Chuunibyo, Katamari, Nintendo 64 DD y mas aqui en MariMoss</marquee></nav>
+
+    <div class="container">
+        <aside class="sidebar-left">
+            <h1 style="font-family: Napapiiri;">TIENDA</h1>
+            <p>BIENVENIDO</p>
+            <div style="margin-top: 50px;">
+                <img src="img/TagDiego.png" width="100%">
+            </div>
+        </aside>
+
+        <main>
+            <div class="shop-grid">
+                
+                <article class="product-card">
+                    <div class="product-image-container"><img src="img/chuunibyo_br.jpg"></div>
+                    <h2>Chuunibyo Demo Koi ga Shitai! Blu-ray</h2>
+                    <p class="product-description">Serie completa en alta definición. Incluye extras exclusivos de la versión japonesa.</p>
+                    <div class="acordeon-pago">
+                        <h3>Formulario de Apartado</h3>
+                        <div>
+                            <form class="form-compra">
+                                <label>Nombre Real:</label>
+                                <input type="text" placeholder="Ej. Juan Perez" required>
+                                <label>Numero de Telefono:</label>
+                                <input type="tel" placeholder="6271234567" required>
+                                <label>Correo Electronico:</label>
+                                <input type="email" placeholder="usuario@correo.com" required>
+                                <label>Direccion de Envio:</label>
+                                <input type="text" placeholder="Calle, Numero, Colonia" required>
+                                <label>Tipo de Pago:</label>
+                                <select>
+                                    <option>Transferencia Bancaria</option>
+                                    <option>Deposito OXXO</option>
+                                    <option>PayPal</option>
+                                </select>
+                                <label style="display:flex; align-items:center; gap:8px; font-size: 0.9rem;">
+                                    <input type="checkbox" style="width:auto;"> Contacto inmediato
+                                </label>
+                                <button type="button" class="btn-enviar">Confirmar Solicitud</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image-container"><img src="img/katamari_forever.png"></div>
+                    <h2>Katamari Forever - PlayStation 3</h2>
+                    <p class="product-description">La celebración definitiva de Katamari con gráficos remasterizados y banda sonora legendaria.</p>
+                    <div class="acordeon-pago">
+                        <h3>Formulario de Apartado</h3>
+                        <div>
+                            <form class="form-compra">
+                                <label>Nombre Real:</label>
+                                <input type="text" placeholder="Ej. Juan Perez" required>
+                                <label>Numero de Telefono:</label>
+                                <input type="tel" placeholder="6271234567" required>
+                                <label>Correo Electronico:</label>
+                                <input type="email" placeholder="usuario@correo.com" required>
+                                <label>Direccion de Envio:</label>
+                                <input type="text" placeholder="Calle, Numero, Colonia" required>
+                                <label>Tipo de Pago:</label>
+                                <select>
+                                    <option>Transferencia Bancaria</option>
+                                    <option>Deposito OXXO</option>
+                                    <option>PayPal</option>
+                                </select>
+                                <label style="display:flex; align-items:center; gap:8px; font-size: 0.9rem;">
+                                    <input type="checkbox" style="width:auto;"> Contacto inmediato
+                                </label>
+                                <button type="button" class="btn-enviar">Confirmar Solicitud</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image-container"><img src="img/marimoko_plush.jpg"></div>
+                    <h2>Peluche Marimoko-Chan Original</h2>
+                    <p class="product-description">Peluche oficial de edición limitada. Suave, raro y listo para decorar tu estante.</p>
+                    <div class="acordeon-pago">
+                        <h3>Formulario de Apartado</h3>
+                        <div>
+                            <form class="form-compra">
+                                <label>Nombre Real:</label>
+                                <input type="text" placeholder="Ej. Juan Perez" required>
+                                <label>Numero de Telefono:</label>
+                                <input type="tel" placeholder="6271234567" required>
+                                <label>Correo Electronico:</label>
+                                <input type="email" placeholder="usuario@correo.com" required>
+                                <label>Direccion de Envio:</label>
+                                <input type="text" placeholder="Calle, Numero, Colonia" required>
+                                <label>Tipo de Pago:</label>
+                                <select>
+                                    <option>Transferencia Bancaria</option>
+                                    <option>Deposito OXXO</option>
+                                    <option>PayPal</option>
+                                </select>
+                                <label style="display:flex; align-items:center; gap:8px; font-size: 0.9rem;">
+                                    <input type="checkbox" style="width:auto;"> Contacto inmediato
+                                </label>
+                                <button type="button" class="btn-enviar">Confirmar Solicitud</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image-container"><img src="img/n64dd.png"></div>
+                    <h2>Nintendo 64 Disk Drive (N64DD)</h2>
+                    <p class="product-description">Hardware legendario exclusivo de Japón. El santo grial de los coleccionistas de Nintendo.</p>
+                    <div class="acordeon-pago">
+                        <h3>Formulario de Apartado</h3>
+                        <div>
+                            <form class="form-compra">
+                                <label>Nombre Real:</label>
+                                <input type="text" placeholder="Ej. Juan Perez" required>
+                                <label>Numero de Telefono:</label>
+                                <input type="tel" placeholder="6271234567" required>
+                                <label>Correo Electronico:</label>
+                                <input type="email" placeholder="usuario@correo.com" required>
+                                <label>Direccion de Envio:</label>
+                                <input type="text" placeholder="Calle, Numero, Colonia" required>
+                                <label>Tipo de Pago:</label>
+                                <select>
+                                    <option>Transferencia Bancaria</option>
+                                    <option>Deposito OXXO</option>
+                                    <option>PayPal</option>
+                                </select>
+                                <label style="display:flex; align-items:center; gap:8px; font-size: 0.9rem;">
+                                    <input type="checkbox" style="width:auto;"> Contacto inmediato
+                                </label>
+                                <button type="button" class="btn-enviar">Confirmar Solicitud</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image-container"><img src="img/simcity64.webp"></div>
+                    <h2>SimCity 64 - Randnet Edition</h2>
+                    <p class="product-description">Versión única para N64DD. Gestiona tu ciudad con funciones nunca vistas en la versión de cartucho.</p>
+                    <div class="acordeon-pago">
+                        <h3>Formulario de Apartado</h3>
+                        <div>
+                            <form class="form-compra">
+                                <label>Nombre Real:</label>
+                                <input type="text" placeholder="Ej. Juan Perez" required>
+                                <label>Numero de Telefono:</label>
+                                <input type="tel" placeholder="6271234567" required>
+                                <label>Correo Electronico:</label>
+                                <input type="email" placeholder="usuario@correo.com" required>
+                                <label>Direccion de Envio:</label>
+                                <input type="text" placeholder="Calle, Numero, Colonia" required>
+                                <label>Tipo de Pago:</label>
+                                <select>
+                                    <option>Transferencia Bancaria</option>
+                                    <option>Deposito OXXO</option>
+                                    <option>PayPal</option>
+                                </select>
+                                <label style="display:flex; align-items:center; gap:8px; font-size: 0.9rem;">
+                                    <input type="checkbox" style="width:auto;"> Contacto inmediato
+                                </label>
+                                <button type="button" class="btn-enviar">Confirmar Solicitud</button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <h1 style="font-family: Napapiiri;">LINKS</h1>
+            <a href="index.html"><img src="img/linkPrincipal.png" width="140px"></a>
+            <p></p>
+            <a href="galeria.html"><img src="img/Link3Galeria.png" width="140px"></a>
+            <p></p>
+            <a href="pagina1.html"><img src="img/link1Art.png" width="140px"></a>
+        </aside>
+    </div>
+
+    <footer><span>MariMoss Shop | Chihuahua | 2026</span></footer>
+
+</body>
+</html>
