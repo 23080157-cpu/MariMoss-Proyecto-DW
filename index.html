@@ -4,25 +4,42 @@
     <meta charset="UTF-8">
     <title>Layout Centrado 60%</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#acordeon-contenido").accordion({
+                heightStyle: "content"
+            });
+        });
+    </script>
 </head>
 <body>
     <p></p>
     <header><img src="img/logo.png" width="100%"></header>    
     <nav>
-        <marquee>¡Noticias geek transmitidas por todo el oceano!</marquee>
+        <marquee>Noticias geek transmitidas por todo el oceano!</marquee>
     </nav>
     <div class="container">
         <aside class="sidebar-left">
             <h1>Integrantes</h1>
             <img src="img/TagDiego.png">
+            <p></p>
+            <img src="img/ubtag.png">
         </aside>
 
         <main>
-            <h2>¿Quienes Somos?</h2>
-            <p>Marimoss es una empresa dedicada a las noticias del mundo geek, siguiendo un lineamiento de diseno arraigado de la filosofia del diseno Aero de los 2000s</p>
-            <h2>¿Por que?</h2>
-            <p>No se esa era la actividad</p>
-
+            <div id="acordeon-contenido">
+                <h3>Contenido Reciente</h3>
+                <div>
+                    <p>Explora las ultimas novedades del mundo de los videojuegos y la cultura geek aqui.</p>
+                </div>
+<h3>Quienes Somos?</h3>
+<div>
+    <p>Marimoss es un espacio creado por estudiantes apasionados por la tecnologia y el mundo geek que no olvidan las raices visuales de internet. Nuestro objetivo es compartir las noticias y curiosidades mas interesantes del mundo geek, pero con un estilo que se siente fresco y familiar para quienes crecimos viendo las interfaces brillantes de los años 2000 e inicios de los 2010s.</p>
+    <p>Nos inspiramos totalmente en el diseno Aero, usando transparencias, reflejos y colores que recuerdan al agua para que navegar por nuestro sitio sea algo agradable y visualmente unico. Para nosotros, Marimoss no es solo un portal de noticias, es un tributo a esa estetica de cristal y naturaleza que definio una de las mejores epocas de la computacion.</p>
+    </div>
         </main>
 
         <aside class="sidebar-right">
@@ -36,9 +53,6 @@
     </div>
     <footer>
         <span>Cobach Plantel 08 | Tecnologias de la innovacion y la informacion | 627 | 2026</span>
-
-
-
     </footer>
 </body>
 </html>
